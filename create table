@@ -1,0 +1,23 @@
+create table Cinemas
+(
+    id      serial PRIMARY KEY,
+    name    varchar(250),
+    address varchar(250)
+);
+create table Movies (
+    id serial PRIMARY KEY,
+    name varchar(250),
+    description varchar(250),
+    rating int
+);
+create table Tickets(
+    id serial PRIMARY KEY,
+    quantity int,
+    price float
+);
+create table Payments(
+    id serial PRIMARY KEY,
+    type varchar(250),
+    date date
+);
+
