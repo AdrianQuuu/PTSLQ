@@ -1,0 +1,42 @@
+-- Tworzenie tabeli Cinemas
+CREATE TABLE Cinemas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE Movies (
+    id INT PRIMARY KEY,
+    title VARCHAR(150) NOT NULL
+);
+
+
+CREATE TABLE Screening (
+    id INT PRIMARY KEY,
+    cinema_id INT NOT NULL,
+    movie_id INT NOT NULL,
+    datetime TIMESTAMP NOT NULL,
+    FOREIGN KEY (cinema_id) REFERENCES Cinemas(id) ON DELETE CASCADE,
+    FOREIGN KEY (movie_id) REFERENCES Movies(id) ON DELETE CASCADE
+);
+
+
+INSERT INTO Cinemas (name) VALUES
+('Kino Centrum'),
+('Kino Max'),
+('Kino Świat');
+
+
+INSERT INTO Movies (title) VALUES
+('Incepcja'),
+('Avatar: Istota wody'),
+('Interstellar');
+
+
+INSERT INTO Screening (cinema_id, movie_id, datetime) VALUES
+(1, 1, '2025-03-10 15:00:00'), -- Incepcja w Kino Centrum
+(1, 2, '2025-03-11 18:00:00'), -- Avatar w Kino Centrum
+(2, 3, '2025-03-12 20:30:00'), -- Interstellar w Kino Max
+(3, 1, '2025-03-13 17:00:00'), -- Incepcja w Kino Świat
+(2, 2, '2025-03-14 19:45:00'); -- Avatar w Kino Max
+
