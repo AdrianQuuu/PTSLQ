@@ -1,0 +1,21 @@
+class KalkulatorBMI:
+    @staticmethod
+    def oblicz_bmi(waga, wzrost):
+        return waga / (wzrost ** 2)
+
+    @staticmethod
+    def interpretuj_bmi(bmi):
+        if bmi < 18.5:
+            return "niedowaga"
+        elif 18.5 <= bmi <= 24.9:
+            return "waga prawidłowa"
+        elif 25 <= bmi <= 29.9:
+            return "nadwaga"
+        else:
+            return "otyłość"
+
+
+
+bmi = KalkulatorBMI.oblicz_bmi(100, 1.83)
+print(bmi)
+print(KalkulatorBMI.interpretuj_bmi(bmi))  # waga prawidłowa
